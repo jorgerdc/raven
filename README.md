@@ -1,2 +1,2 @@
 # raven
-Course  Management System  as intelligent as a raven !
+### Course  Management System.  As intelligent as a raven !
