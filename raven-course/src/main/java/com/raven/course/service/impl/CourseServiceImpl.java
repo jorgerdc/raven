@@ -63,6 +63,10 @@ public class CourseServiceImpl implements CourseService {
 
 		courseDAO.create(course);
 
+		log.debug("Adding modalities");
+
+		courseDAO.addModalities(course.getModalities(), course.getId());
+
 		log.debug("Creating course topics");
 
 		topicCourseDAO.createTopicTree(course.getRootTopic());
