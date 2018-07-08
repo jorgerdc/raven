@@ -1,0 +1,246 @@
+2018-07-07 12:47:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "CREATE SEQUENCE CAREER_PLAN_SEQ
+    START WITH 1
+    INCREMENT BY 1
+    NOMINVALUE
+    NOMAXVALUE
+    CACHE 20
+    NOORDER[*] "
+Syntax error in SQL statement "CREATE SEQUENCE CAREER_PLAN_SEQ
+    START WITH 1
+    INCREMENT BY 1
+    NOMINVALUE
+    NOMAXVALUE
+    CACHE 20
+    NOORDER[*] "; SQL statement:
+create sequence career_plan_seq
+    start with 1
+    increment by 1
+    nominvalue
+    nomaxvalue
+    cache 20
+    noorder [42000-197]
+2018-07-07 12:50:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "   
+                             
+  
+
+CREATE TABLE COURSE_CARRER_PLAN(
+    COURSE_CARRER_PLAN_ID    NUMBER(10, 0)    NOT NULL,
+    ORDER[*]                    NUMBER(2, 0)     NOT NULL,
+    CAREER_PLAN_ID           NUMBER(2, 0)     NOT NULL,
+    COURSE_ID                NUMBER(10, 0)    NOT NULL,
+    CONSTRAINT COURSE_CARRER_PLAN_PK PRIMARY KEY (COURSE_CARRER_PLAN_ID), 
+    CONSTRAINT COURSE_CARRER_PLAN_ID_FK FOREIGN KEY (CAREER_PLAN_ID)
+    REFERENCES CAREER_PLAN(CAREER_PLAN_ID),
+    CONSTRAINT COURSE_CARRER_COURSE_ID_FK FOREIGN KEY (COURSE_ID)
+    REFERENCES COURSE(COURSE_ID)
+) "; se esperaba "identifier"
+Syntax error in SQL statement "   
+                             
+  
+
+CREATE TABLE COURSE_CARRER_PLAN(
+    COURSE_CARRER_PLAN_ID    NUMBER(10, 0)    NOT NULL,
+    ORDER[*]                    NUMBER(2, 0)     NOT NULL,
+    CAREER_PLAN_ID           NUMBER(2, 0)     NOT NULL,
+    COURSE_ID                NUMBER(10, 0)    NOT NULL,
+    CONSTRAINT COURSE_CARRER_PLAN_PK PRIMARY KEY (COURSE_CARRER_PLAN_ID), 
+    CONSTRAINT COURSE_CARRER_PLAN_ID_FK FOREIGN KEY (CAREER_PLAN_ID)
+    REFERENCES CAREER_PLAN(CAREER_PLAN_ID),
+    CONSTRAINT COURSE_CARRER_COURSE_ID_FK FOREIGN KEY (COURSE_ID)
+    REFERENCES COURSE(COURSE_ID)
+) "; expected "identifier"; SQL statement:
+-- 
+-- table: course_carrer_plan 
+--
+
+create table course_carrer_plan(
+    course_carrer_plan_id    number(10, 0)    not null,
+    order                    number(2, 0)     not null,
+    career_plan_id           number(2, 0)     not null,
+    course_id                number(10, 0)    not null,
+    constraint course_carrer_plan_pk primary key (course_carrer_plan_id), 
+    constraint course_carrer_plan_id_fk foreign key (career_plan_id)
+    references career_plan(career_plan_id),
+    constraint course_carrer_course_id_fk foreign key (course_id)
+    references course(course_id)
+) [42001-197]
+2018-07-07 18:38:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT NEXT VAL FOR CAREER_PLAN_SEQ[*] "
+Syntax error in SQL statement "SELECT NEXT VAL FOR CAREER_PLAN_SEQ[*] "; SQL statement:
+select next val for career_plan_seq [42000-197]
+2018-07-07 18:47:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "select nextval([*]'career_plan_seq"
+Syntax error in SQL statement "select nextval([*]'career_plan_seq"; SQL statement:
+select nextval('career_plan_seq [42000-197]
+2018-07-07 18:55:24 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/media/jorge/PROYS/Github/raven/raven-course/src/test/resources/databases/h2/schemas/raven-course.mv.db [1.4.197/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/media/jorge/PROYS/Github/raven/raven-course/src/test/resources/databases/h2/schemas/raven-course.mv.db [1.4.197/7]" [50000-197]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:307)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2506)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:383)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:364)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2934)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:155)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:100)
+	at org.h2.engine.Database.getPageStore(Database.java:2538)
+	at org.h2.engine.Database.open(Database.java:709)
+	at org.h2.engine.Database.openDatabase(Database.java:286)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:66)
+	at org.h2.engine.Engine.openSession(Engine.java:179)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:157)
+	at org.h2.engine.Engine.createSession(Engine.java:140)
+	at org.h2.engine.Engine.createSession(Engine.java:28)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:351)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.jdbc.datasource.DataSourceTransactionManager.doBegin(DataSourceTransactionManager.java:262)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:378)
+	at org.springframework.test.context.transaction.TransactionContext.startTransaction(TransactionContext.java:103)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.beforeTestMethod(TransactionalTestExecutionListener.java:192)
+	at org.springframework.test.context.TestContextManager.beforeTestMethod(TestContextManager.java:291)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.h2.jdbc.JdbcSQLException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/media/jorge/PROYS/Github/raven/raven-course/src/test/resources/databases/h2/schemas/raven-course.mv.db [1.4.197/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/media/jorge/PROYS/Github/raven/raven-course/src/test/resources/databases/h2/schemas/raven-course.mv.db [1.4.197/7]" [50000-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 56 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/media/jorge/PROYS/Github/raven/raven-course/src/test/resources/databases/h2/schemas/raven-course.mv.db [1.4.197/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:870)
+	at org.h2.mvstore.FileStore.open(FileStore.java:173)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:350)
+	... 50 more
+2018-07-07 18:57:34 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/media/jorge/PROYS/Github/raven/raven-course/src/test/resources/databases/h2/schemas/raven-course.mv.db [1.4.197/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/media/jorge/PROYS/Github/raven/raven-course/src/test/resources/databases/h2/schemas/raven-course.mv.db [1.4.197/7]" [50000-197]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:307)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2506)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:383)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:364)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2934)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:155)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:100)
+	at org.h2.engine.Database.getPageStore(Database.java:2538)
+	at org.h2.engine.Database.open(Database.java:709)
+	at org.h2.engine.Database.openDatabase(Database.java:286)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:66)
+	at org.h2.engine.Engine.openSession(Engine.java:179)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:157)
+	at org.h2.engine.Engine.createSession(Engine.java:140)
+	at org.h2.engine.Engine.createSession(Engine.java:28)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:351)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.jdbc.datasource.DataSourceTransactionManager.doBegin(DataSourceTransactionManager.java:262)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:378)
+	at org.springframework.test.context.transaction.TransactionContext.startTransaction(TransactionContext.java:103)
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.beforeTestMethod(TransactionalTestExecutionListener.java:192)
+	at org.springframework.test.context.TestContextManager.beforeTestMethod(TestContextManager.java:291)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.h2.jdbc.JdbcSQLException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/media/jorge/PROYS/Github/raven/raven-course/src/test/resources/databases/h2/schemas/raven-course.mv.db [1.4.197/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:/media/jorge/PROYS/Github/raven/raven-course/src/test/resources/databases/h2/schemas/raven-course.mv.db [1.4.197/7]" [50000-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 56 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/media/jorge/PROYS/Github/raven/raven-course/src/test/resources/databases/h2/schemas/raven-course.mv.db [1.4.197/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:870)
+	at org.h2.mvstore.FileStore.open(FileStore.java:173)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:350)
+	... 50 more
+2018-07-08 13:03:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "CREATE TABLE COURSE_CAREER_PLAN(
+    COURSE_CAREER_PLAN_ID    NUMBER(10, 0)    NOT NULL,
+    ORDER[*]                    NUMBER(2, 0)     NOT NULL,
+    CAREER_PLAN_ID           NUMBER(2, 0)     NOT NULL,
+    COURSE_ID                NUMBER(10, 0)    NOT NULL,
+    CONSTRAINT COURSE_CAREER_PLAN_PK PRIMARY KEY (COURSE_CAREER_PLAN_ID), 
+    CONSTRAINT COURSE_CAREER_PLAN_ID_FK FOREIGN KEY (CAREER_PLAN_ID)
+    REFERENCES CAREER_PLAN(CAREER_PLAN_ID),
+    CONSTRAINT COURSE_CAREER_COURSE_ID_FK FOREIGN KEY (COURSE_ID)
+    REFERENCES COURSE(COURSE_ID)
+) "; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE COURSE_CAREER_PLAN(
+    COURSE_CAREER_PLAN_ID    NUMBER(10, 0)    NOT NULL,
+    ORDER[*]                    NUMBER(2, 0)     NOT NULL,
+    CAREER_PLAN_ID           NUMBER(2, 0)     NOT NULL,
+    COURSE_ID                NUMBER(10, 0)    NOT NULL,
+    CONSTRAINT COURSE_CAREER_PLAN_PK PRIMARY KEY (COURSE_CAREER_PLAN_ID), 
+    CONSTRAINT COURSE_CAREER_PLAN_ID_FK FOREIGN KEY (CAREER_PLAN_ID)
+    REFERENCES CAREER_PLAN(CAREER_PLAN_ID),
+    CONSTRAINT COURSE_CAREER_COURSE_ID_FK FOREIGN KEY (COURSE_ID)
+    REFERENCES COURSE(COURSE_ID)
+) "; expected "identifier"; SQL statement:
+create table course_career_plan(
+    course_career_plan_id    number(10, 0)    not null,
+    order                    number(2, 0)     not null,
+    career_plan_id           number(2, 0)     not null,
+    course_id                number(10, 0)    not null,
+    constraint course_career_plan_pk primary key (course_career_plan_id), 
+    constraint course_career_plan_id_fk foreign key (career_plan_id)
+    references career_plan(career_plan_id),
+    constraint course_career_course_id_fk foreign key (course_id)
+    references course(course_id)
+) [42001-197]
