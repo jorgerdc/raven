@@ -6,7 +6,7 @@
 	* Resource course catalog administration.
 	* Topic Tree course catalog administration.
 
-* See hs
+* This project uses H2 has dev database for testing. See ```h2-startup.sh```  for deta
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NTI2MjYxMSwtMTc0ODExOTEwNl19
+eyJoaXN0b3J5IjpbMjA1MDY1Mzc5MCwtMTc0ODExOTEwNl19
 -->
