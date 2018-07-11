@@ -1,5 +1,5 @@
 /**
- * Main.java
+ * Application.java
  * Creation Date: 08/07/2018, 23:54:55
  *
  * Copyright (C) The Project *raven-course-spring-boot* Authors.
@@ -16,16 +16,16 @@
 package com.raven;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Main class for raven application
+ * Application Main class for this project.
  */
 @RestController
-@EnableAutoConfiguration
-public class Main {
+@SpringBootApplication
+public class Application {
 
 	/**
 	 * @return
@@ -39,6 +39,6 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(Main.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }
