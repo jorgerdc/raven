@@ -1,0 +1,16 @@
+version = "$ravenCourseServiceVersion"
+dependencies {
+	compile project(':raven-course-model')
+	
+	compile "org.springframework:spring-context:$springVersion"
+	compile "org.springframework:spring-tx:$springVersion"
+	compile "org.springframework:spring-jdbc:$springVersion"
+
+	//pool de conexiones
+	runtime "com.zaxxer:HikariCP:$hikariVersion"
+	runtime  "com.h2database:h2:$h2Version"
+
+	//testing
+	testCompile "org.springframework:spring-test:$springVersion"
+	testCompile "io.github.benas:random-beans:$randonBeansVersion"	
+}

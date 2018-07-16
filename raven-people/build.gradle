@@ -1,0 +1,30 @@
+allprojects {
+    group = 'com.raven'
+}
+
+ext { 
+	springBootVersion ='2.1.0.BUILD-SNAPSHOT'
+   h2Version ='1.4.197'
+	//modules
+	ravenPeopleModelVersion ='0.0.1-SNAPSHOT'
+	ravenPeopleServiceVersion ='0.0.1-SNAPSHOT'
+	//testing
+	randomBeansVersion='3.7.0'
+}
+
+subprojects {
+
+	apply plugin: 'java'
+       
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8 
+	
+	 tasks.withType(JavaCompile) {
+    		options.encoding = 'ISO-8859-1'
+    }
+    
+	repositories {
+		jcenter()
+		mavenCentral()
+	}
+}

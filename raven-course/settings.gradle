@@ -1,1 +1,3 @@
+
 rootProject.name = 'raven-course'
+include 'raven-course-model','raven-course-service'
