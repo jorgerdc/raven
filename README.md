@@ -1,4 +1,14 @@
-# raven
-### Course  Management System.  As intelligent as a raven!!
-change 1
-change GitHubFlow
+﻿
+## raven-course
+* Course Management System. As intelligent as a raven course !!
+### 1.1 Technologies used in this project
+#### Middleware
+* Java JDK 8
+* PostgreSQL 
+* Spring Core
+* Spring JDBC
+* JUnit 5
+#### Vista
+* Boostrap
+* jQuery
+* Spring MVC
