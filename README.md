@@ -12,3 +12,6 @@
 * Boostrap
 * jQuery
 * Spring MVC
+#### 1.2 Database Design
+* Relational model
+![enter image description here](https://github.com/jorgerdc/raven-course/config/database/raven-courses.jpg)
