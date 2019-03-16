@@ -46,36 +46,36 @@ import io.github.benas.randombeans.api.EnhancedRandom;
 @Transactional
 public class CareerPlanServiceTest {
 
-	private static Logger log = LoggerFactory.getLogger(CareerPlanServiceTest.class);
+  private static Logger log = LoggerFactory.getLogger(CareerPlanServiceTest.class);
 
-	@Resource
-	private CareerPlanService careerPlanService;
+  @Resource
+  private CareerPlanService careerPlanService;
 
-	private EnhancedRandom random;
+  private EnhancedRandom random;
 
-	/**
-	 * Create a new random
-	 */
-	@Before
-	public void setup() {
+  /**
+   * Create a new random
+   */
+  @Before
+  public void setup() {
 
-		random = aNewEnhancedRandomBuilder().stringLengthRange(5, 40)
-			.exclude(field().named("id").get()).build();
+    random = aNewEnhancedRandomBuilder().stringLengthRange(5, 40)
+      .exclude(field().named("id").get()).build();
 
-	}
+  }
 
-	/**
-	 * Creates a new course, just to see if the service and dao are working property
-	 */
-	@Test
-	public void createNewCareerPlan() {
+  /**
+   * Creates a new course, just to see if the service and dao are working property
+   */
+  @Test
+  public void createNewCareerPlan() {
 
-		CareerPlan plan;
-		plan = random.nextObject(CareerPlan.class);
-		log.debug("creating plan {}", plan);
-		careerPlanService.createPlan(plan);
-		assertNotNull("id was not set by DAO", plan.getId());
-		log.debug("plan created: {}", plan);
+    CareerPlan plan;
+    plan = random.nextObject(CareerPlan.class);
+    log.debug("creating plan {}", plan);
+    careerPlanService.createPlan(plan);
+    assertNotNull("id was not set by DAO", plan.getId());
+    log.debug("plan created: {}", plan);
 
-	}
+  }
 }

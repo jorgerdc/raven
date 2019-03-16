@@ -26,15 +26,15 @@ import com.raven.course.model.CourseTopic;
 @Repository("topicCourseDAO")
 public class TopicCourseJdbcDAO extends GenericJdbcDAO implements TopicCourseDAO {
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see com.raven.course.dao.TopicCourseDAO#createTopicTree(com.raven.course.model.
-	 * CourseTopic)
-	 */
-	@Override
-	public void createTopicTree(CourseTopic rootTopic) {
-		// TODO Auto-generated method stub
+  /*
+   * See the original documentation of the method declaration
+   * @see com.raven.course.dao.TopicCourseDAO#createTopicTree(com.raven.course.model.
+   * CourseTopic)
+   */
+  @Override
+  public void createTopicTree(CourseTopic rootTopic) {
+    // TODO Auto-generated method stub
 
-	}
+  }
 
 }

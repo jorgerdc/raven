@@ -23,10 +23,10 @@ import com.raven.course.model.CourseTopic;
 
 public interface TopicCourseDAO {
 
-	/**
-	 * Creates the topic tree of a course.
-	 * @param rootTopic
-	 */
-	void createTopicTree(CourseTopic rootTopic);
+  /**
+   * Creates the topic tree of a course.
+   * @param rootTopic
+   */
+  void createTopicTree(CourseTopic rootTopic);
 
 }

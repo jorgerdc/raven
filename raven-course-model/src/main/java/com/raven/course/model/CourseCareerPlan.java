@@ -23,89 +23,89 @@ import java.io.Serializable;
 
 public class CourseCareerPlan implements Serializable {
 
-	private static final long serialVersionUID = 3053543961876402873L;
+  private static final long serialVersionUID = 3053543961876402873L;
 
-	private Long id;
+  private Long id;
 
-	private int order;
+  private int order;
 
-	private Course course;
+  private Course course;
 
-	private CareerPlan plan;
+  private CareerPlan plan;
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
+  /**
+   * @return the id
+   */
+  public Long getId() {
+    return id;
+  }
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
+  /**
+   * @param id the id to set
+   */
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	/**
-	 * @return the order
-	 */
-	public int getOrder() {
-		return order;
-	}
+  /**
+   * @return the order
+   */
+  public int getOrder() {
+    return order;
+  }
 
-	/**
-	 * @param order the order to set
-	 */
-	public void setOrder(int order) {
-		this.order = order;
-	}
+  /**
+   * @param order the order to set
+   */
+  public void setOrder(int order) {
+    this.order = order;
+  }
 
-	/**
-	 * @return the course
-	 */
-	public Course getCourse() {
-		return course;
-	}
+  /**
+   * @return the course
+   */
+  public Course getCourse() {
+    return course;
+  }
 
-	/**
-	 * @param course the course to set
-	 */
-	public void setCourse(Course course) {
-		this.course = course;
-	}
+  /**
+   * @param course the course to set
+   */
+  public void setCourse(Course course) {
+    this.course = course;
+  }
 
-	/**
-	 * @return the plan
-	 */
-	public CareerPlan getPlan() {
-		return plan;
-	}
+  /**
+   * @return the plan
+   */
+  public CareerPlan getPlan() {
+    return plan;
+  }
 
-	/**
-	 * @param plan the plan to set
-	 */
-	public void setPlan(CareerPlan plan) {
-		this.plan = plan;
-	}
+  /**
+   * @param plan the plan to set
+   */
+  public void setPlan(CareerPlan plan) {
+    this.plan = plan;
+  }
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("CourseCareerPlan [id=");
-		builder.append(id);
-		builder.append(", order=");
-		builder.append(order);
-		builder.append(", course=");
-		builder.append(course);
-		builder.append(", plan=");
-		builder.append(plan);
-		builder.append("]");
-		return builder.toString();
-	}
+  /*
+   * See the original documentation of the method declaration
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder.append("CourseCareerPlan [id=");
+    builder.append(id);
+    builder.append(", order=");
+    builder.append(order);
+    builder.append(", course=");
+    builder.append(course);
+    builder.append(", plan=");
+    builder.append(plan);
+    builder.append("]");
+    return builder.toString();
+  }
 
 }

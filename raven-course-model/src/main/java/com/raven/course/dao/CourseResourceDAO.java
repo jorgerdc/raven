@@ -25,11 +25,11 @@ import com.raven.course.model.CourseResource;
 
 public interface CourseResourceDAO {
 
-	/**
-	 * Add this list of resources to specific courses.
-	 * @param resources
-	 * @param courseId
-	 */
-	void addResources(Set<CourseResource> resources, Long courseId);
+  /**
+   * Add this list of resources to specific courses.
+   * @param resources
+   * @param courseId
+   */
+  void addResources(Set<CourseResource> resources, Long courseId);
 
 }

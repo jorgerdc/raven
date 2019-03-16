@@ -23,89 +23,89 @@ import java.io.Serializable;
 
 public class CareerPlan implements Serializable {
 
-	private static final long serialVersionUID = -8490389380760478658L;
+  private static final long serialVersionUID = -8490389380760478658L;
 
-	private Long id;
+  private Long id;
 
-	private String name;
+  private String name;
 
-	private String description;
+  private String description;
 
-	private String adquiredAck;
+  private String adquiredAck;
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
+  /**
+   * @return the id
+   */
+  public Long getId() {
+    return id;
+  }
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
+  /**
+   * @param id the id to set
+   */
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+  /**
+   * @return the name
+   */
+  public String getName() {
+    return name;
+  }
 
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+  /**
+   * @param name the name to set
+   */
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
+  /**
+   * @return the description
+   */
+  public String getDescription() {
+    return description;
+  }
 
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  /**
+   * @param description the description to set
+   */
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-	/**
-	 * @return the adquiredAck
-	 */
-	public String getAdquiredAck() {
-		return adquiredAck;
-	}
+  /**
+   * @return the adquiredAck
+   */
+  public String getAdquiredAck() {
+    return adquiredAck;
+  }
 
-	/**
-	 * @param adquiredAck the adquiredAck to set
-	 */
-	public void setAdquiredAck(String adquiredAck) {
-		this.adquiredAck = adquiredAck;
-	}
+  /**
+   * @param adquiredAck the adquiredAck to set
+   */
+  public void setAdquiredAck(String adquiredAck) {
+    this.adquiredAck = adquiredAck;
+  }
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("CareerPlan [id=");
-		builder.append(id);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append(", description=");
-		builder.append(description);
-		builder.append(", adquiredAck=");
-		builder.append(adquiredAck);
-		builder.append("]");
-		return builder.toString();
-	}
+  /*
+   * See the original documentation of the method declaration
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder.append("CareerPlan [id=");
+    builder.append(id);
+    builder.append(", name=");
+    builder.append(name);
+    builder.append(", description=");
+    builder.append(description);
+    builder.append(", adquiredAck=");
+    builder.append(adquiredAck);
+    builder.append("]");
+    return builder.toString();
+  }
 
 }

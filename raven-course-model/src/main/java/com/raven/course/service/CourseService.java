@@ -23,11 +23,11 @@ import com.raven.course.model.Course;
 
 public interface CourseService {
 
-	/**
-	 * create a new course. The following data is stored: General data, course topics,
-	 * modalities and resources
-	 * @param course
-	 */
-	void createCourse(Course course);
+  /**
+   * create a new course. The following data is stored: General data, course topics,
+   * modalities and resources
+   * @param course
+   */
+  void createCourse(Course course);
 
 }

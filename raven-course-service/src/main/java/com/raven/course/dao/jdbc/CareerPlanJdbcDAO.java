@@ -28,58 +28,50 @@ import com.raven.course.model.CourseCareerPlan;
 @Repository("careerPlanDAO")
 public class CareerPlanJdbcDAO extends GenericJdbcDAO implements CareerPlanDAO {
 
-	private static final String career_plan_seq = "career_plan_seq";
+  private static final String career_plan_seq = "career_plan_seq";
 
-	private static final String course_career_plan_seq = "course_career_plan_seq";
+  private static final String course_career_plan_seq = "course_career_plan_seq";
 
-	private static final String career_plan_insert = "insert into career_plan("
-		+ "career_plan_id,name,description,adquired_ack) values(?,?,?,?)";
+  private static final String career_plan_insert = "insert into career_plan("
+    + "career_plan_id,name,description,adquired_ack) values(?,?,?,?)";
 
-	private static final String course_career_plan_insert = "insert into "
-		+ "course_career_plan(course_career_plan_id,order_course,career_plan_id,course_id)"
-		+ " values(?,?,?,?)";
+  private static final String course_career_plan_insert = "insert into "
+    + "course_career_plan(course_career_plan_id,order_course,career_plan_id,course_id)"
+    + " values(?,?,?,?)";
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see com.raven.course.dao.CareerPlanDAO#create(com.raven.course.model.CareerPlan)
-	 */
-	@Override
-	public void create(CareerPlan plan) {
+  /*
+   * See the original documentation of the method declaration
+   * @see com.raven.course.dao.CareerPlanDAO#create(com.raven.course.model.CareerPlan)
+   */
+  @Override
+  public void create(CareerPlan plan) {
 
-		Long id;
-		int result;
+    Long id;
+    int result;
 
-		id = getNextId(career_plan_seq);
+    id = getNextId(career_plan_seq);
+    result = getJdbcTemplate().update(career_plan_insert, id, plan.getName(),
+      plan.getDescription(), plan.getAdquiredAck());
+    checkRowUpdated(1, result);
+    plan.setId(id);
+  }
 
-		result = getJdbcTemplate().update(career_plan_insert, id, plan.getName(),
-			plan.getDescription(), plan.getAdquiredAck());
+  /*
+   * See the original documentation of the method declaration
+   * @see com.raven.course.dao.CareerPlanDAO#addCourseToPlan(com.raven.course.model.
+   * CourseCareerPlan)
+   */
+  @Override
+  public void addCourseToPlan(CourseCareerPlan courseCareerPlan) {
 
-		checkRowUpdated(1, result);
+    Long id;
+    int result;
 
-		plan.setId(id);
-
-	}
-
-	/*
-	 * See the original documentation of the method declaration
-	 * @see com.raven.course.dao.CareerPlanDAO#addCourseToPlan(com.raven.course.model.
-	 * CourseCareerPlan)
-	 */
-	@Override
-	public void addCourseToPlan(CourseCareerPlan courseCareerPlan) {
-
-		Long id;
-		int result;
-
-		id = getNextId(course_career_plan_seq);
-		result = getJdbcTemplate().update(course_career_plan_insert, id,
-			courseCareerPlan.getOrder(), courseCareerPlan.getPlan().getId(),
-			courseCareerPlan.getCourse().getId());
-
-		checkRowUpdated(1, result);
-
-		courseCareerPlan.setId(id);
-
-	}
-
+    id = getNextId(course_career_plan_seq);
+    result =
+      getJdbcTemplate().update(course_career_plan_insert, id, courseCareerPlan.getOrder(),
+        courseCareerPlan.getPlan().getId(), courseCareerPlan.getCourse().getId());
+    checkRowUpdated(1, result);
+    courseCareerPlan.setId(id);
+  }
 }

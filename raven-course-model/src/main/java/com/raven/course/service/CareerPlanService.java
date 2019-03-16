@@ -26,22 +26,22 @@ import com.raven.course.model.CourseCareerPlan;
 
 public interface CareerPlanService {
 
-	/**
-	 * Creates a new plan
-	 * @param plan
-	 */
-	void createPlan(CareerPlan plan);
+  /**
+   * Creates a new plan
+   * @param plan
+   */
+  void createPlan(CareerPlan plan);
 
-	/**
-	 * Adds a new course in a career path
-	 * @param courseCarrerPlan
-	 */
-	void addCourseToCarrePlan(CourseCareerPlan courseCarrerPlan);
+  /**
+   * Adds a new course in a career path
+   * @param courseCarrerPlan
+   */
+  void addCourseToCarrePlan(CourseCareerPlan courseCarrerPlan);
 
-	/**
-	 * Get the list of all available career plans.
-	 * @return
-	 */
-	Set<CareerPlan> getAllCareerPlans();
+  /**
+   * Get the list of all available career plans.
+   * @return
+   */
+  Set<CareerPlan> getAllCareerPlans();
 
 }

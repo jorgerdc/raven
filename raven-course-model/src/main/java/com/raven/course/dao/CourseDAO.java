@@ -26,17 +26,17 @@ import com.raven.course.model.CourseModality;
 
 public interface CourseDAO {
 
-	/**
-	 * Creates a new course
-	 * @param course
-	 */
-	void create(Course course);
+  /**
+   * Creates a new course
+   * @param course
+   */
+  void create(Course course);
 
-	/**
-	 * Add course modalities
-	 * @param modalities
-	 * @param courseId
-	 */
-	void addModalities(Set<CourseModality> modalities, Long courseId);
+  /**
+   * Add course modalities
+   * @param modalities
+   * @param courseId
+   */
+  void addModalities(Set<CourseModality> modalities, Long courseId);
 
 }

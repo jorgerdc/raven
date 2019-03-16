@@ -11,6 +11,7 @@ ext {
 	//modules
 	ravenCourseModelVersion ='0.0.1-SNAPSHOT'
 	ravenCourseServiceVersion ='0.0.1-SNAPSHOT'
+	ravenCourseWebVersion ='0.0.1-SNAPSHOT'
 	//testing
 	randonBeansVersion='3.7.0'
 }

@@ -1,0 +1,28 @@
+version = "$ravenCourseWebVersion"
+
+/**
+ * Configuracion para el plugin de gretty - Este plugin es excelente para probar app Web.
+ * Sitio principal: https://github.com/gretty-gradle-plugin/gretty
+ * Entre sus funciones, tiene soporte para Jetty y hot deploy.
+ * Para ver toda la  funcionalidad: https://gretty-gradle-plugin.github.io/gretty-doc/
+ * Para levantar jetty y probar la aplicacion, en consola dentro del directorio del
+ * proyecto ejecutar:
+ *  gradle appRun
+ *  Acceder al directorio raiz: http://localhost:8080/control-inr/index.html
+ **/ 
+
+buildscript {
+  repositories {
+   jcenter()
+  }
+  dependencies {
+    classpath 'org.gretty:gretty:+'
+  }
+}
+
+apply plugin: 'org.gretty'
+
+gretty {
+  loggingLevel = 'DEBUG'
+  jvmArgs = ['-Dlog4j.configuration=file:src/test/resources/log4j.properties']
+}       
