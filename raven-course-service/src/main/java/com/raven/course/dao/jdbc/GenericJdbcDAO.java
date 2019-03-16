@@ -28,35 +28,35 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 public abstract class GenericJdbcDAO extends JdbcDaoSupport {
 
-	private static final String nextval_sql = "select nextval(?)";
+  private static final String nextval_sql = "select nextval(?)";
 
-	@Resource(name = "dataSource")
-	private void setDS(DataSource ds) {
-		this.setDataSource(ds);
-	}
+  @Resource(name = "dataSource")
+  private void setDS(DataSource ds) {
+    this.setDataSource(ds);
+  }
 
-	/**
-	 * Check the results of a insert,update or delete operation
-	 * @param expected
-	 * @param actual
-	 */
-	protected final void checkRowUpdated(int expected, int actual) {
+  /**
+   * Check the results of a insert,update or delete operation
+   * @param expected
+   * @param actual
+   */
+  protected final void checkRowUpdated(int expected, int actual) {
 
-		if (expected != actual) {
+    if (expected != actual) {
 
-			throw new IncorrectResultSizeDataAccessException(expected, actual);
-		}
+      throw new IncorrectResultSizeDataAccessException(expected, actual);
+    }
 
-	}
+  }
 
-	/**
-	 * get a new Id using a sequence
-	 * @param seqName
-	 * @return
-	 */
-	protected final Long getNextId(String seqName) {
+  /**
+   * get a new Id using a sequence
+   * @param seqName
+   * @return
+   */
+  protected final Long getNextId(String seqName) {
 
-		return getJdbcTemplate().queryForObject(nextval_sql, Long.class, seqName);
-	}
+    return getJdbcTemplate().queryForObject(nextval_sql, Long.class, seqName);
+  }
 
 }

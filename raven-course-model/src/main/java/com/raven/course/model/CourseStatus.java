@@ -21,64 +21,64 @@ package com.raven.course.model;
 
 public enum CourseStatus {
 
-	/**
-	 * Open course
-	 */
-	OPEN(1, "OPEN", "This course is available and enrolls are allowed", true),
+  /**
+   * Open course
+   */
+  OPEN(1, "OPEN", "This course is available and enrolls are allowed", true),
 
-	/**
-	 * Deprecated
-	 */
-	DEPRECATED(2, "DEPRECATED", "This course is not longer available for enrolls", true);
+  /**
+   * Deprecated
+   */
+  DEPRECATED(2, "DEPRECATED", "This course is not longer available for enrolls", true);
 
-	private Integer id;
+  private Integer id;
 
-	private String name;
+  private String name;
 
-	private String description;
+  private String description;
 
-	private boolean active;
+  private boolean active;
 
-	/**
-	 * private constructor
-	 * @param id
-	 * @param name
-	 * @param description
-	 * @param active
-	 */
-	private CourseStatus(Integer id, String name, String description, boolean active) {
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.active = active;
-	}
+  /**
+   * private constructor
+   * @param id
+   * @param name
+   * @param description
+   * @param active
+   */
+  private CourseStatus(Integer id, String name, String description, boolean active) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.active = active;
+  }
 
-	/**
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
+  /**
+   * @return the id
+   */
+  public Integer getId() {
+    return id;
+  }
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+  /**
+   * @return the name
+   */
+  public String getName() {
+    return name;
+  }
 
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
+  /**
+   * @return the description
+   */
+  public String getDescription() {
+    return description;
+  }
 
-	/**
-	 * @return the active
-	 */
-	public boolean isActive() {
-		return active;
-	}
+  /**
+   * @return the active
+   */
+  public boolean isActive() {
+    return active;
+  }
 
 }

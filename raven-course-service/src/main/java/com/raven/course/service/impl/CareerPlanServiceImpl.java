@@ -36,47 +36,47 @@ import com.raven.course.service.CareerPlanService;
 @Service("careerPlanService")
 public class CareerPlanServiceImpl implements CareerPlanService {
 
-	@Resource
-	CareerPlanDAO careerPlanDAO;
+  @Resource
+  CareerPlanDAO careerPlanDAO;
 
-	private static final Logger log = LoggerFactory.getLogger(CareerPlanServiceImpl.class);
+  private static final Logger log = LoggerFactory.getLogger(CareerPlanServiceImpl.class);
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see com.raven.course.service.CareerPlanService#createPlan(com.raven.course.model.
-	 * CareerPlan)
-	 */
-	@Override
-	@Transactional
-	public void createPlan(CareerPlan plan) {
+  /*
+   * See the original documentation of the method declaration
+   * @see com.raven.course.service.CareerPlanService#createPlan(com.raven.course.model.
+   * CareerPlan)
+   */
+  @Override
+  @Transactional
+  public void createPlan(CareerPlan plan) {
 
-		log.debug("Creating new career plan");
-		careerPlanDAO.create(plan);
+    log.debug("Creating new career plan");
+    careerPlanDAO.create(plan);
 
-	}
+  }
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see
-	 * com.raven.course.service.CareerPlanService#addCourseToCarrePlan(com.raven.course.
-	 * model.CourseCareerPlan)
-	 */
-	@Override
-	@Transactional
-	public void addCourseToCarrePlan(CourseCareerPlan courseCarrerPlan) {
-		log.debug("Adding course to career path");
-		careerPlanDAO.addCourseToPlan(courseCarrerPlan);
+  /*
+   * See the original documentation of the method declaration
+   * @see
+   * com.raven.course.service.CareerPlanService#addCourseToCarrePlan(com.raven.course.
+   * model.CourseCareerPlan)
+   */
+  @Override
+  @Transactional
+  public void addCourseToCarrePlan(CourseCareerPlan courseCarrerPlan) {
+    log.debug("Adding course to career path");
+    careerPlanDAO.addCourseToPlan(courseCarrerPlan);
 
-	}
+  }
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see com.raven.course.service.CareerPlanService#getAllCareerPlans()
-	 */
-	@Override
-	public Set<CareerPlan> getAllCareerPlans() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  /*
+   * See the original documentation of the method declaration
+   * @see com.raven.course.service.CareerPlanService#getAllCareerPlans()
+   */
+  @Override
+  public Set<CareerPlan> getAllCareerPlans() {
+    // TODO Auto-generated method stub
+    return null;
+  }
 
 }

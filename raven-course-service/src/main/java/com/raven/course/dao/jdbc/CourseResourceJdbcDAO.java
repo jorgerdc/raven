@@ -28,29 +28,28 @@ import com.raven.course.model.CourseResource;
 @Repository("courseResourceDAO")
 public class CourseResourceJdbcDAO extends GenericJdbcDAO implements CourseResourceDAO {
 
-	private static final String course_resource_seq = "course_resource_seq";
+  private static final String course_resource_seq = "course_resource_seq";
 
-	private static final String resources_insert_sql = "insert into course_resource"
-		+ "(course_resource_id,name,description,url,is_private,course_id) values "
-		+ "(?,?,?,?,?,?)";
+  private static final String resources_insert_sql = "insert into course_resource"
+    + "(course_resource_id,name,description,url,is_private,course_id) values "
+    + "(?,?,?,?,?,?)";
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see com.raven.course.dao.CourseResourceDAO#addResources(java.util.Set,
-	 * java.lang.Long)
-	 */
-	@Override
-	public void addResources(Set<CourseResource> resources, Long courseId) {
+  /*
+   * See the original documentation of the method declaration
+   * @see com.raven.course.dao.CourseResourceDAO#addResources(java.util.Set,
+   * java.lang.Long)
+   */
+  @Override
+  public void addResources(Set<CourseResource> resources, Long courseId) {
 
-		resources.forEach(resource -> {
-			Long id;
-			int result;
-			id = getNextId(course_resource_seq);
-			result = getJdbcTemplate().update(resources_insert_sql, id, resource.getName(),
-				resource.getDescription(), resource.getUrl(), resource.getIsPrivate(),
-				courseId);
-			checkRowUpdated(1, result);
-			resource.setId(id);
-		});
-	}
+    resources.forEach(resource -> {
+      Long id;
+      int result;
+      id = getNextId(course_resource_seq);
+      result = getJdbcTemplate().update(resources_insert_sql, id, resource.getName(),
+        resource.getDescription(), resource.getUrl(), resource.getIsPrivate(), courseId);
+      checkRowUpdated(1, result);
+      resource.setId(id);
+    });
+  }
 }
