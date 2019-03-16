@@ -23,89 +23,89 @@ import java.io.Serializable;
 
 public class CourseTopic implements Serializable {
 
-	private static final long serialVersionUID = 3886080468136313712L;
+  private static final long serialVersionUID = 3886080468136313712L;
 
-	private Long id;
+  private Long id;
 
-	private String number;
+  private String number;
 
-	private String name;
+  private String name;
 
-	private CourseTopic parentTopic;
+  private CourseTopic parentTopic;
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
+  /**
+   * @return the id
+   */
+  public Long getId() {
+    return id;
+  }
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
+  /**
+   * @param id the id to set
+   */
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	/**
-	 * @return the number
-	 */
-	public String getNumber() {
-		return number;
-	}
+  /**
+   * @return the number
+   */
+  public String getNumber() {
+    return number;
+  }
 
-	/**
-	 * @param number the number to set
-	 */
-	public void setNumber(String number) {
-		this.number = number;
-	}
+  /**
+   * @param number the number to set
+   */
+  public void setNumber(String number) {
+    this.number = number;
+  }
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+  /**
+   * @return the name
+   */
+  public String getName() {
+    return name;
+  }
 
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+  /**
+   * @param name the name to set
+   */
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	/**
-	 * @return the parentTopic
-	 */
-	public CourseTopic getParentTopic() {
-		return parentTopic;
-	}
+  /**
+   * @return the parentTopic
+   */
+  public CourseTopic getParentTopic() {
+    return parentTopic;
+  }
 
-	/**
-	 * @param parentTopic the parentTopic to set
-	 */
-	public void setParentTopic(CourseTopic parentTopic) {
-		this.parentTopic = parentTopic;
-	}
+  /**
+   * @param parentTopic the parentTopic to set
+   */
+  public void setParentTopic(CourseTopic parentTopic) {
+    this.parentTopic = parentTopic;
+  }
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("CourseTopic [id=");
-		builder.append(id);
-		builder.append(", number=");
-		builder.append(number);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append(", parentTopic=");
-		builder.append(parentTopic);
-		builder.append("]");
-		return builder.toString();
-	}
+  /*
+   * See the original documentation of the method declaration
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder.append("CourseTopic [id=");
+    builder.append(id);
+    builder.append(", number=");
+    builder.append(number);
+    builder.append(", name=");
+    builder.append(name);
+    builder.append(", parentTopic=");
+    builder.append(parentTopic);
+    builder.append("]");
+    return builder.toString();
+  }
 
 }

@@ -42,52 +42,51 @@ import org.springframework.test.context.ActiveProfilesResolver;
 
 public class RavenActiveProfilesResolver implements ActiveProfilesResolver {
 
-	private static final Logger log =
-		LoggerFactory.getLogger(RavenActiveProfilesResolver.class);
+  private static final Logger log =
+    LoggerFactory.getLogger(RavenActiveProfilesResolver.class);
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see
-	 * org.springframework.test.context.ActiveProfilesResolver#resolve(java.lang.Class)
-	 */
-	@Override
-	public String[] resolve(Class<?> testClass) {
+  /*
+   * See the original documentation of the method declaration
+   * @see
+   * org.springframework.test.context.ActiveProfilesResolver#resolve(java.lang.Class)
+   */
+  @Override
+  public String[] resolve(Class<?> testClass) {
 
-		boolean available;
+    boolean available;
 
-		log.debug("Checking if an H2 server is running locally");
-		available = isServiceAvailable("localhost", 9092);
-		if (available) {
-			log.debug("H2 server running, using 'h2' profile");
-			return new String[] { "h2-server" };
-		}
+    log.debug("Checking if an H2 server is running locally");
+    available = isServiceAvailable("localhost", 9092);
+    if (available) {
+      log.debug("H2 server running, using 'h2' profile");
+      return new String[] { "h2-server" };
+    }
 
-		log.debug("No local server is running, checking if db files exist");
-		ClassPathResource resource;
-		resource = new ClassPathResource("/databases/h2/schemas/raven-course.mv.db");
+    log.debug("No local server is running, checking if db files exist");
+    ClassPathResource resource;
+    resource = new ClassPathResource("/databases/h2/schemas/raven-course.mv.db");
 
-		if (resource.exists()) {
-			log.debug("Database files were found, h2-no-server profile will be used ");
-			return new String[] { "h2-no-server" };
-		}
+    if (resource.exists()) {
+      log.debug("Database files were found, h2-no-server profile will be used ");
+      return new String[] { "h2-no-server" };
+    }
 
-		log.debug(
-			"No servers running, no database files, h2-embedded profile will be used");
-		return new String[] { "h2-embedded" };
+    log.debug("No servers running, no database files, h2-embedded profile will be used");
+    return new String[] { "h2-embedded" };
 
-	}
+  }
 
-	/**
-	 * @param ip
-	 * @param port
-	 * @return
-	 */
-	private boolean isServiceAvailable(String ip, int port) {
-		try (Socket ignored = new Socket(ip, port)) {
-			return true;
-		} catch (IOException ignored) {
-			return false;
-		}
-	}
+  /**
+   * @param ip
+   * @param port
+   * @return
+   */
+  private boolean isServiceAvailable(String ip, int port) {
+    try (Socket ignored = new Socket(ip, port)) {
+      return true;
+    } catch (IOException ignored) {
+      return false;
+    }
+  }
 
 }

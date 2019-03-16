@@ -25,15 +25,15 @@ import com.raven.course.model.CourseCareerPlan;
 
 public interface CareerPlanDAO {
 
-	/**
-	 * @param plan
-	 */
-	void create(CareerPlan plan);
+  /**
+   * @param plan
+   */
+  void create(CareerPlan plan);
 
-	/**
-	 * Creates {@link Course} - {@link CareerPlan} association
-	 * @param courseCareerPlan
-	 */
-	void addCourseToPlan(CourseCareerPlan courseCareerPlan);
+  /**
+   * Creates {@link Course} - {@link CareerPlan} association
+   * @param courseCareerPlan
+   */
+  void addCourseToPlan(CourseCareerPlan courseCareerPlan);
 
 }

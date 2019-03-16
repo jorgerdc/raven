@@ -21,67 +21,67 @@ package com.raven.course.model;
 
 public enum CourseModality {
 
-	/**
-	 * On Site course
-	 */
-	ON_SITE(1, "ON SITE", "The course is taught in a classroom. Students and teacher meet"
-		+ " in a specific place", true),
+  /**
+   * On Site course
+   */
+  ON_SITE(1, "ON SITE", "The course is taught in a classroom. Students and teacher meet"
+    + " in a specific place", true),
 
-	/**
-	 * Online course
-	 */
-	ONLINE(2, "ONLINE",
-		"The course is taught online, students and teacher join using an online platform.",
-		true);
+  /**
+   * Online course
+   */
+  ONLINE(2, "ONLINE",
+    "The course is taught online, students and teacher join using an online platform.",
+    true);
 
-	private Integer id;
+  private Integer id;
 
-	private String name;
+  private String name;
 
-	private String description;
+  private String description;
 
-	private boolean active;
+  private boolean active;
 
-	/**
-	 * private constructor
-	 * @param id
-	 * @param name
-	 * @param description
-	 * @param active
-	 */
-	private CourseModality(Integer id, String name, String description, boolean active) {
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.active = active;
-	}
+  /**
+   * private constructor
+   * @param id
+   * @param name
+   * @param description
+   * @param active
+   */
+  private CourseModality(Integer id, String name, String description, boolean active) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.active = active;
+  }
 
-	/**
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
+  /**
+   * @return the id
+   */
+  public Integer getId() {
+    return id;
+  }
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+  /**
+   * @return the name
+   */
+  public String getName() {
+    return name;
+  }
 
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
+  /**
+   * @return the description
+   */
+  public String getDescription() {
+    return description;
+  }
 
-	/**
-	 * @return the active
-	 */
-	public boolean isActive() {
-		return active;
-	}
+  /**
+   * @return the active
+   */
+  public boolean isActive() {
+    return active;
+  }
 
 }

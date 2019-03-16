@@ -33,60 +33,56 @@ import com.raven.course.model.CourseModality;
 @Repository("courseDAO")
 public class CourseJdbcDAO extends GenericJdbcDAO implements CourseDAO {
 
-	private LobHandler lobHandler = new DefaultLobHandler();
+  private LobHandler lobHandler = new DefaultLobHandler();
 
-	private static final String course_seq = "course_seq";
+  private static final String course_seq = "course_seq";
 
-	private static final String course_modality_seq = "course_modality_seq";
+  private static final String course_modality_seq = "course_modality_seq";
 
-	private static final String course_insert_sql = "insert into course"
-		+ "(course_id,name,description,adquired_ack,total_hours,logo,landing_page,"
-		+ "course_status_id,course_topic_id) values(?,?,?,?,?,?,?,?,?)";
+  private static final String course_insert_sql = "insert into course"
+    + "(course_id,name,description,adquired_ack,total_hours,logo,landing_page,"
+    + "course_status_id,course_topic_id) values(?,?,?,?,?,?,?,?,?)";
 
-	private static final String course_modalities_insert = "insert into course_resource "
-		+ "(course_modality_id,course_id,modality_id) values(?,?,?)";
+  private static final String course_modalities_insert = "insert into course_resource "
+    + "(course_modality_id,course_id,modality_id) values(?,?,?)";
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see com.raven.course.dao.CourseDAO#create(com.raven.course.model.Course)
-	 */
-	@Override
-	public void create(Course course) {
-		Long id;
-		int result;
+  /*
+   * See the original documentation of the method declaration
+   * @see com.raven.course.dao.CourseDAO#create(com.raven.course.model.Course)
+   */
+  @Override
+  public void create(Course course) {
+    Long id;
+    int result;
 
-		id = getNextId(course_seq);
-		result = getJdbcTemplate().update(course_insert_sql, id, course.getName(),
-			course.getDescription(), course.getAdquiredAck(), course.getTotalHours(),
-			new SqlLobValue(course.getLogo(), lobHandler), course.getLandingPage(),
-			course.getStatus().getId(), course.getRootTopic().getId());
+    id = getNextId(course_seq);
+    result = getJdbcTemplate().update(course_insert_sql, id, course.getName(),
+      course.getDescription(), course.getAdquiredAck(), course.getTotalHours(),
+      new SqlLobValue(course.getLogo(), lobHandler), course.getLandingPage(),
+      course.getStatus().getId(), course.getRootTopic().getId());
 
-		checkRowUpdated(1, result);
+    checkRowUpdated(1, result);
+    course.setId(id);
+  }
 
-		course.setId(id);
+  /*
+   * See the original documentation of the method declaration
+   * @see com.raven.course.dao.CourseDAO#addModalities(java.util.Set)
+   */
+  @Override
+  public void addModalities(Set<CourseModality> modalities, Long courseId) {
 
-	}
+    modalities.forEach(modality -> {
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see com.raven.course.dao.CourseDAO#addModalities(java.util.Set)
-	 */
-	@Override
-	public void addModalities(Set<CourseModality> modalities, Long courseId) {
+      Long id;
+      int result;
 
-		modalities.forEach(modality -> {
+      id = getNextId(course_modality_seq);
+      result = getJdbcTemplate().update(course_modalities_insert, id, courseId,
+        modality.getId());
 
-			Long id;
-			int result;
+      checkRowUpdated(1, result);
 
-			id = getNextId(course_modality_seq);
-			result = getJdbcTemplate().update(course_modalities_insert, id, courseId,
-				modality.getId());
-
-			checkRowUpdated(1, result);
-
-		});
-
-	}
-
+    });
+  }
 }

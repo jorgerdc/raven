@@ -36,46 +36,46 @@ import com.raven.course.service.CourseService;
 @Service("courseService")
 public class CourseServiceImpl implements CourseService {
 
-	@Resource
-	private CourseDAO courseDAO;
+  @Resource
+  private CourseDAO courseDAO;
 
-	@Resource
-	private CourseResourceDAO courseResourceDAO;
+  @Resource
+  private CourseResourceDAO courseResourceDAO;
 
-	@Resource
-	private CareerPlanDAO careerPlanDAO;
+  @Resource
+  private CareerPlanDAO careerPlanDAO;
 
-	@Resource
-	private TopicCourseDAO topicCourseDAO;
+  @Resource
+  private TopicCourseDAO topicCourseDAO;
 
-	private static final Logger log = LoggerFactory.getLogger(CourseServiceImpl.class);
+  private static final Logger log = LoggerFactory.getLogger(CourseServiceImpl.class);
 
-	/*
-	 * See the original documentation of the method declaration
-	 * @see
-	 * com.raven.course.service.CourseService#createCourse(com.raven.course.model.Course)
-	 */
-	@Override
-	@Transactional
-	public void createCourse(Course course) {
+  /*
+   * See the original documentation of the method declaration
+   * @see
+   * com.raven.course.service.CourseService#createCourse(com.raven.course.model.Course)
+   */
+  @Override
+  @Transactional
+  public void createCourse(Course course) {
 
-		log.debug("Creating new course {}", course);
+    log.debug("Creating new course {}", course);
 
-		courseDAO.create(course);
+    courseDAO.create(course);
 
-		log.debug("Adding modalities");
+    log.debug("Adding modalities");
 
-		courseDAO.addModalities(course.getModalities(), course.getId());
+    courseDAO.addModalities(course.getModalities(), course.getId());
 
-		log.debug("Creating course topics");
+    log.debug("Creating course topics");
 
-		topicCourseDAO.createTopicTree(course.getRootTopic());
+    topicCourseDAO.createTopicTree(course.getRootTopic());
 
-		log.debug("Creating resources");
+    log.debug("Creating resources");
 
-		courseResourceDAO.addResources(course.getResources(), course.getId());
+    courseResourceDAO.addResources(course.getResources(), course.getId());
 
-		log.debug("Course created.");
+    log.debug("Course created.");
 
-	}
+  }
 }
